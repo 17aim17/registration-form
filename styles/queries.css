@@ -21,6 +21,12 @@
   .grid__form--element {
     flex-direction: row;
   }
+  #branch {
+    width: 18rem;
+  }
+  #year {
+    width: 10rem;
+  }
 }
 
 @media all and (max-width: 750px) {
@@ -46,12 +52,14 @@
   .form-group {
     width: 100%;
   }
-  .grid__form--element {
-    width: 83.9%;
+  .grid__form--element label {
+    font-size: 1.6rem;
   }
-
-  .grid__form--element > * {
-    flex: 1 1 50%;
+  #branch {
+    width: 13rem;
+  }
+  #year {
+    width: 9rem;
   }
   .btn {
     align-self: flex-start;

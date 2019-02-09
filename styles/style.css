@@ -141,10 +141,13 @@ option {
 .grid__form--element {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  justify-content: flex-start;
 }
-.grid__form--element > * {
-  flex-basis: 18rem;
+#branch {
+  width: 24rem;
+}
+#year {
+  width: 10rem;
 }
 .error {
   border-color: #e0245e;
@@ -152,6 +155,8 @@ option {
 .invalid {
   font-size: 1.2rem;
   font-style: italic;
+  padding: 0;
+  margin: 0.1rem;
   color: #e0245e;
 }
 .btn {
