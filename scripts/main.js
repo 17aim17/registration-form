@@ -38,7 +38,7 @@ address.addEventListener('focusout', () => {
   check_address();
 });
 
-photo.addEventListener('focusout', () => {
+photo.addEventListener('change', () => {
   check_photo();
 });
 
