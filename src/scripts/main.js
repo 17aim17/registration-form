@@ -1,3 +1,15 @@
+import {
+  check_address,
+  check_email,
+  check_fName,
+  check_lName,
+  check_password,
+  check_phone,
+  check_photo,
+  check_rollNo,
+  check_branch
+} from './util';
+import { modalFunction } from './model';
 const form = document.getElementById('submitform');
 
 const email = document.getElementById('email');
@@ -7,8 +19,6 @@ const fName = document.getElementById('fName');
 const lName = document.getElementById('lName');
 
 const phone = document.getElementById('phone');
-
-const address = document.getElementById('address');
 
 const photo = document.getElementById('photo');
 
@@ -34,9 +44,9 @@ phone.addEventListener('focusout', () => {
   check_phone();
 });
 
-address.addEventListener('focusout', () => {
-  check_address();
-});
+// address.addEventListener('focusout', () => {
+//   check_address();
+// });
 
 photo.addEventListener('change', () => {
   check_photo();
@@ -61,7 +71,6 @@ form.addEventListener('submit', e => {
   check_lName();
   check_email();
   check_phone();
-  check_address();
   check_photo();
   check_rollNo();
   check_branch();
@@ -71,14 +80,13 @@ form.addEventListener('submit', e => {
     check_fName() &&
     check_email() &&
     check_phone() &&
-    check_address() &&
     check_photo() &&
     check_rollNo() &&
     check_branch() &&
     check_password()
   ) {
-    alert('You are good to go !!');
+    modalFunction(`<p>Congratulations!! ,You filled the form successfully</p>`);
   } else {
-    console.log('Fill all fields with "*" symbol');
+    modalFunction(`<p>Please Fill all The  fields with '*' symbol</p>`);
   }
 });

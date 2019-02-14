@@ -1,4 +1,4 @@
-const check_email = () => {
+export const check_email = () => {
   const emailError = document.getElementById('errorEmail');
   emailError.innerHTML = '';
   const emial_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -19,7 +19,7 @@ const check_email = () => {
   }
 };
 
-const check_fName = () => {
+export const check_fName = () => {
   const errorfName = document.getElementById('errorfName');
   errorfName.innerHTML = '';
   const name_regex = /^[a-zA-Z ]*$/;
@@ -40,7 +40,7 @@ const check_fName = () => {
   }
 };
 
-const check_lName = () => {
+export const check_lName = () => {
   const errorlName = document.getElementById('errorlName');
   errorlName.innerHTML = '';
   const name_regex = /^[a-zA-Z ]*$/;
@@ -57,7 +57,7 @@ const check_lName = () => {
   }
 };
 
-const check_phone = () => {
+export const check_phone = () => {
   const errorPhone = document.getElementById('errorPhone');
   errorPhone.innerHTML = '';
   var phone_regex = /^[789]\d{9}$/;
@@ -78,33 +78,33 @@ const check_phone = () => {
   }
 };
 
-const check_address = () => {
-  const errorAddress = document.getElementById('errorAddress');
-  errorAddress.innerHTML = '';
-  var name_regex = /^[a-zA-Z /.,|()-]*$/;
-  var invalid_input = /^[<>{}|:;]*$/;
-  const addressValue = address.value;
+// export const check_address = () => {
+//   const errorAddress = document.getElementById('errorAddress');
+//   errorAddress.innerHTML = '';
+//   var name_regex = /^[a-zA-Z /.,|()-]*$/;
+//   var invalid_input = /^[<>{}|:;]*$/;
+//   const addressValue = address.value;
 
-  if (addressValue.trim().length === 0) {
-    errorAddress.innerHTML = 'Address is required';
-    address.classList.add('error');
-    return false;
-  } else if (
-    !addressValue.match(name_regex) ||
-    addressValue.match(invalid_input)
-  ) {
-    errorAddress.innerHTML =
-      'Invalid Input, Only Text, Spaces, / . - | ( )  allowed';
-    address.classList.add('error');
-    return false;
-  } else {
-    errorAddress.innerHTML = '';
-    address.classList.remove('error');
-    return true;
-  }
-};
+//   if (addressValue.trim().length === 0) {
+//     errorAddress.innerHTML = 'Address is required';
+//     address.classList.add('error');
+//     return false;
+//   } else if (
+//     !addressValue.match(name_regex) ||
+//     addressValue.match(invalid_input)
+//   ) {
+//     errorAddress.innerHTML =
+//       'Invalid Input, Only Text, Spaces, / . - | ( )  allowed';
+//     address.classList.add('error');
+//     return false;
+//   } else {
+//     errorAddress.innerHTML = '';
+//     address.classList.remove('error');
+//     return true;
+//   }
+// };
 
-const check_photo = () => {
+export const check_photo = () => {
   const errorPhoto = document.getElementById('errorPhoto');
   errorPhoto.innerHTML = '';
   const filePath = photo.value;
@@ -132,7 +132,7 @@ const check_photo = () => {
   }
 };
 
-const check_rollNo = () => {
+export const check_rollNo = () => {
   const errorRoll = document.getElementById('errorRoll');
   errorRoll.innerHTML = '';
   var digit_regex = /^[0-9]*$/;
@@ -153,7 +153,7 @@ const check_rollNo = () => {
   }
 };
 
-const check_branch = () => {
+export const check_branch = () => {
   const errorBranch = document.getElementById('errorBranch');
   errorBranch.innerHTML = '';
   var my_regex = /[a-zA-Z]|\s|\.*/;
@@ -170,7 +170,7 @@ const check_branch = () => {
   }
 };
 
-const check_password = () => {
+export const check_password = () => {
   const errorPassword = document.getElementById('errorPassword');
   errorPassword.innerHTML = '';
   var my_regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;

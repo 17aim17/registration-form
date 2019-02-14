@@ -1,0 +1,83 @@
+@media all and (max-width: 1120px) {
+  .grid {
+    flex-direction: column;
+    margin: 0;
+  }
+  .grid__left {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  h2 {
+    margin-top: 3rem;
+    word-break: keep-all;
+  }
+  figure {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url('../images/main.jpg');
+    width: 100%;
+    height: 35rem;
+  }
+}
+
+@media all and (max-width: 750px) {
+  body {
+    padding: 0;
+  }
+  #h1,
+  h1 {
+    font-size: 3.8rem;
+  }
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 0;
+    word-break: keep-all;
+  }
+  label {
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .wrapper {
+    padding: 1rem;
+    border-radius: 0.7rem;
+    padding: 0;
+  }
+  .grid__form {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .grid__form__one {
+    padding: 0;
+    text-align: center;
+  }
+  .grid__form__two {
+    padding: 0;
+    text-align: center;
+  }
+  figure {
+    border-radius: none;
+    height: 20rem;
+  }
+  .form-group {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+  input:focus,
+  select:focus,
+  input:hover,
+  select:hover,
+  .custom-file-input:hover {
+    width: 85%;
+    transform: scale(1.1);
+  }
+  .btn {
+    align-self: center;
+    width: 80%;
+    margin: 4.5rem 0;
+  }
+  .btn--submit:hover {
+    color: #fff;
+    box-shadow: none;
+    background-color: #068d72;
+  }
+}
