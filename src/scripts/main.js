@@ -6,8 +6,10 @@ import {
   check_password,
   check_phone,
   check_photo,
+  check_collage,
   check_rollNo,
-  check_branch
+  check_branch,
+  check_year
 } from './util';
 import { modalFunction } from './model';
 const form = document.getElementById('submitform');
@@ -22,9 +24,13 @@ const phone = document.getElementById('phone');
 
 const photo = document.getElementById('photo');
 
+const collage = document.getElementById('collage');
+
 const rollNo = document.getElementById('rollNo');
 
 const branch = document.getElementById('branch');
+
+const year = document.getElementById('year');
 
 const password = document.getElementById('password');
 
@@ -52,6 +58,10 @@ photo.addEventListener('change', () => {
   check_photo();
 });
 
+// collage.addEventListener('focusout', () => {
+//   check_collage();
+// });
+
 rollNo.addEventListener('focusout', () => {
   check_rollNo();
 });
@@ -59,6 +69,10 @@ rollNo.addEventListener('focusout', () => {
 branch.addEventListener('focusout', () => {
   check_branch();
 });
+
+// year.addEventListener('focusout', () => {
+//   check_year();
+// });
 
 password.addEventListener('focusout', () => {
   check_password();
@@ -72,8 +86,10 @@ form.addEventListener('submit', e => {
   check_email();
   check_phone();
   check_photo();
+  check_collage();
   check_rollNo();
   check_branch();
+  check_year();
   check_password();
 
   if (
@@ -81,12 +97,14 @@ form.addEventListener('submit', e => {
     check_email() &&
     check_phone() &&
     check_photo() &&
+    check_collage() &&
     check_rollNo() &&
     check_branch() &&
+    check_year() &&
     check_password()
   ) {
     modalFunction(`<p>Congratulations!! ,You filled the form successfully</p>`);
   } else {
-    modalFunction(`<p>Please Fill all The  fields with '*' symbol</p>`);
+    modalFunction(`<p>Please Fill all required fields</p>`);
   }
 });

@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900');
-@import './queries.css';
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,700,700i,900');
 pre {
   display: none;
 }
 html {
   font-size: 62.5%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
   background-color: #fafafa;
   line-height: 1.2;
   letter-spacing: 2px;
@@ -43,6 +43,7 @@ h1 {
 }
 h2 {
   font-size: 2.8rem;
+  margin-top: 1rem;
   margin-bottom: 3rem;
   color: #ff4757;
 }
@@ -74,6 +75,10 @@ h2 {
   padding: 0 5%;
   width: 90%;
   text-align: center;
+  /* label */
+  display: block;
+  margin-top: 4.8rem;
+  margin-bottom: 1.4rem;
 }
 .grid__form__one {
   flex: 1 1 50%;
@@ -81,6 +86,7 @@ h2 {
 }
 .grid__form__two {
   flex: 1 1 50%;
+  align-items: flex-start;
   text-align: center;
 }
 figure {
@@ -113,7 +119,7 @@ input,
   color: #fff;
   font-weight: 300;
   width: 80%;
-  transition: 0.25s;
+  transition: all 0.25s ease-in-out;
 }
 input {
   padding: 1.4rem;
@@ -121,6 +127,8 @@ input {
 .select-dropdown {
   padding: 1.2rem;
   cursor: pointer;
+  width: 86%;
+  text-align-last: center;
 }
 input:focus,
 select:focus,
@@ -192,7 +200,7 @@ option {
   border: 1px solid #06725c;
   box-shadow: 0 0 0.5rem #06725c;
   border-radius: 4rem;
-  transition: 0.25s;
+  transition: all 0.25s ease-in-out;
 }
 .btn--submit:hover {
   color: #fff;

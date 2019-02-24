@@ -173,21 +173,52 @@ export const check_branch = () => {
 export const check_password = () => {
   const errorPassword = document.getElementById('errorPassword');
   errorPassword.innerHTML = '';
-  var my_regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+  var my_regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9]{6,16}$/;
   const passwordValue = password.value;
 
   if (passwordValue.trim().length === 0) {
     errorPassword.innerHTML = 'Password is required';
     password.classList.add('error');
     return false;
-  } else if (!passwordValue.match(my_regex)) {
-    errorPassword.innerHTML =
-      'Password should contain atleast one number and one special character and min lenght is 6 characters';
+  } else if (passwordValue.length < 6) {
+    errorPassword.innerHTML = 'Password Minimum length is 6';
     password.classList.add('error');
     return false;
   } else {
     errorPassword.innerHTML = '';
     password.classList.remove('error');
+    return true;
+  }
+};
+
+export const check_collage = () => {
+  const errorCollage = document.getElementById('errorCollage');
+  errorCollage.innerHTML = '';
+  var value = collage.options[collage.selectedIndex].value;
+
+  if (value === 'none') {
+    errorCollage.innerHTML = 'Select Your Collage';
+    collage.classList.add('error');
+    return false;
+  } else {
+    errorCollage.innerHTML = '';
+    collage.classList.remove('error');
+    return true;
+  }
+};
+
+export const check_year = () => {
+  const errorYear = document.getElementById('errorYear');
+  errorYear.innerHTML = '';
+  var value = year.options[year.selectedIndex].value;
+
+  if (value === 'none') {
+    errorYear.innerHTML = 'Select Your Year';
+    year.classList.add('error');
+    return false;
+  } else {
+    errorYear.innerHTML = '';
+    year.classList.remove('error');
     return true;
   }
 };
