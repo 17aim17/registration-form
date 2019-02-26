@@ -1,4 +1,7 @@
-@media all and (max-width: 1120px) {
+@media all and (max-width: 850px) {
+  body {
+    margin: 2.5rem;
+  }
   .grid {
     flex-direction: column;
     margin: 0;
@@ -6,61 +9,56 @@
   .grid__left {
     margin-right: 0;
     margin-left: 0;
+    border-radius: 0;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
   }
-  h2 {
-    margin-top: 3rem;
-    word-break: keep-all;
-  }
-  figure {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url('../images/main.jpg');
+  .grid__left ul {
     width: 100%;
-    height: 35rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  ul {
+    width: 70%;
+  }
+  li:first-child {
+    border: 0;
   }
 }
 
-@media all and (max-width: 750px) {
+@media all and (max-width: 600px) {
   body {
     padding: 0;
+    margin: 1.5rem;
   }
-  #h1,
-  h1 {
-    font-size: 3.8rem;
+  .grid__left ul {
+    justify-content: space-between;
   }
-  h2 {
-    margin-top: 4rem;
-    margin-bottom: 0;
-    padding-bottom: 0;
+
+  li {
+    padding: 4rem 0;
     word-break: keep-all;
   }
-  label {
-    margin-top: 1.5rem;
-    margin-bottom: 0.3rem;
+  li:last-child {
+    border-top-right-radius: 2rem;
+  }
+  h1 {
+    font-size: 3.2rem;
+    word-break: keep-all;
   }
   .wrapper {
-    padding: 1px;
-    border-radius: 0.7rem;
+    width: 100%;
   }
   .grid__form {
-    flex-direction: column;
-    justify-content: center;
-  }
-  .grid__form__one {
-    padding: 0;
-    text-align: center;
-  }
-  .grid__form__two {
-    padding: 0;
-    text-align: center;
-  }
-  figure {
-    border-radius: none;
-    height: 20rem;
+    padding: 2rem;
   }
   .form-group {
-    width: 100%;
     padding: 0;
-    text-align: center;
+    width: 100%;
+  }
+  li:first-child {
+    border: 0;
   }
   input:focus,
   select:focus,

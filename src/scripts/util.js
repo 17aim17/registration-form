@@ -5,7 +5,7 @@ export const check_email = () => {
   const emailValue = email.value;
 
   if (emailValue.trim().length == 0) {
-    emailError.innerHTML = 'Email Filed is required';
+    emailError.innerHTML = 'Please enter email';
     email.classList.add('error');
     return false;
   } else if (!emailValue.match(emial_regex)) {
@@ -19,40 +19,27 @@ export const check_email = () => {
   }
 };
 
-export const check_fName = () => {
-  const errorfName = document.getElementById('errorfName');
-  errorfName.innerHTML = '';
-  const name_regex = /^[a-zA-Z ]*$/;
-  const fnameValue = fName.value;
+export const check_username = () => {
+  const errorUsername = document.getElementById('errorUsername');
+  errorUsername.innerHTML = '';
+  const username_regex = /^[a-z0-9]*$/;
+  const userNameValue = username.value;
 
-  if (fnameValue.trim().length == 0) {
-    errorfName.innerHTML = 'First Name is Required';
-    fName.classList.add('error');
+  if (userNameValue.trim().length == 0) {
+    errorUsername.innerHTML = 'Please enter username';
+    username.classList.add('error');
     return false;
-  } else if (!fnameValue.match(name_regex)) {
-    errorfName.innerHTML = 'Name should only contain a-z A-Z';
-    fName.classList.add('error');
-    return false;
-  } else {
-    errorfName.innerHTML = '';
-    fName.classList.remove('error');
-    return true;
-  }
-};
-
-export const check_lName = () => {
-  const errorlName = document.getElementById('errorlName');
-  errorlName.innerHTML = '';
-  const name_regex = /^[a-zA-Z ]*$/;
-  const lnameValue = lName.value;
-
-  if (!lnameValue.match(name_regex) && lnameValue.trim().length > 0) {
-    errorlName.innerHTML = 'Name should only contain a-z A-Z';
-    lName.classList.add('error');
+  } else if (
+    !userNameValue.match(username_regex) ||
+    userNameValue.length > 30
+  ) {
+    errorUsername.innerHTML =
+      'Username should only contain a-z and 0-9 and max length is 30 characters';
+    username.classList.add('error');
     return false;
   } else {
-    errorlName.innerHTML = '';
-    lName.classList.remove('error');
+    errorUsername.innerHTML = '';
+    username.classList.remove('error');
     return true;
   }
 };
@@ -64,11 +51,11 @@ export const check_phone = () => {
   const phoneValue = phone.value;
 
   if (phoneValue.trim().length === 0) {
-    errorPhone.innerHTML = 'Phone is required';
+    errorPhone.innerHTML = 'Please enter Contact no.';
     phone.classList.add('error');
     return false;
   } else if (!phoneValue.match(phone_regex)) {
-    errorPhone.innerHTML = 'Phone number is Invalid';
+    errorPhone.innerHTML = 'Contact no. is Invalid';
     phone.classList.add('error');
     return false;
   } else {
@@ -78,32 +65,6 @@ export const check_phone = () => {
   }
 };
 
-// export const check_address = () => {
-//   const errorAddress = document.getElementById('errorAddress');
-//   errorAddress.innerHTML = '';
-//   var name_regex = /^[a-zA-Z /.,|()-]*$/;
-//   var invalid_input = /^[<>{}|:;]*$/;
-//   const addressValue = address.value;
-
-//   if (addressValue.trim().length === 0) {
-//     errorAddress.innerHTML = 'Address is required';
-//     address.classList.add('error');
-//     return false;
-//   } else if (
-//     !addressValue.match(name_regex) ||
-//     addressValue.match(invalid_input)
-//   ) {
-//     errorAddress.innerHTML =
-//       'Invalid Input, Only Text, Spaces, / . - | ( )  allowed';
-//     address.classList.add('error');
-//     return false;
-//   } else {
-//     errorAddress.innerHTML = '';
-//     address.classList.remove('error');
-//     return true;
-//   }
-// };
-
 export const check_photo = () => {
   const errorPhoto = document.getElementById('errorPhoto');
   errorPhoto.innerHTML = '';
@@ -111,7 +72,7 @@ export const check_photo = () => {
   const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
 
   if (photo.value == '') {
-    errorPhoto.innerHTML = 'Photo is required';
+    errorPhoto.innerHTML = 'Please select your Image';
     photo.classList.add('error');
     return false;
   } else if (!allowedExtensions.exec(filePath)) {
@@ -121,13 +82,34 @@ export const check_photo = () => {
     photo.classList.add('error');
     return false;
   } else if (photo.files[0].size > 256000) {
-    errorPhoto.innerHTML =
-      'Photo size is greater than 250 kb . <a href="https://www.dcrustrhythm.org/how_to_resize_photo.html" target="_blank">Click here</a> to know how to reduce file size';
+    errorPhoto.innerHTML = 'Photo size is greater than 250 kb.';
+    //  <a href="https://www.dcrustrhythm.org/how_to_resize_photo.html" target="_blank">Click here</a> to know how to reduce file size
     photo.classList.add('error');
     return false;
   } else {
     errorPhoto.innerHTML = '';
     photo.classList.remove('error');
+    return true;
+  }
+};
+
+export const check_dob = () => {
+  const errorDob = document.getElementById('errorDob');
+  errorDob.innerHTML = '';
+  const dobValue = dob.value;
+  const current = new Date();
+
+  if (!dobValue) {
+    errorDob.innerHTML = 'Please select your Date-Of-Birth';
+    dob.classList.add('error');
+    return false;
+  } else if (new Date(dob.value) >= current) {
+    errorDob.innerHTML = 'Current or Future dates not allowded';
+    dob.classList.add('error');
+    return false;
+  } else {
+    errorDob.innerHTML = '';
+    dob.classList.remove('error');
     return true;
   }
 };
@@ -139,7 +121,7 @@ export const check_rollNo = () => {
   const rollNoValue = rollNo.value;
 
   if (rollNoValue.trim().length === 0) {
-    errorRoll.innerHTML = 'Roll No is required';
+    errorRoll.innerHTML = 'Please enter Collage Roll No.';
     rollNo.classList.add('error');
     return false;
   } else if (!rollNoValue.match(digit_regex)) {
@@ -153,6 +135,39 @@ export const check_rollNo = () => {
   }
 };
 
+export const check_collage = () => {
+  const errorCollage = document.getElementById('errorCollage');
+  errorCollage.innerHTML = '';
+  var value = collage.options[collage.selectedIndex].value;
+
+  if (value === 'none') {
+    errorCollage.innerHTML = 'Please select your Collage';
+    collage.classList.add('error');
+    return false;
+  } else {
+    errorCollage.innerHTML = '';
+    collage.classList.remove('error');
+    return true;
+  }
+};
+
+export const check_course = () => {
+  const errorCourse = document.getElementById('errorCourse');
+  errorCourse.innerHTML = '';
+  var my_regex = /[a-zA-Z]|\s|\.*/;
+  const courseValue = course.value;
+
+  if (courseValue.trim().length === 0) {
+    errorCourse.innerHTML = 'Please enter your Course';
+    course.classList.add('error');
+    return false;
+  } else {
+    errorCourse.innerHTML = '';
+    course.classList.remove('error');
+    return true;
+  }
+};
+
 export const check_branch = () => {
   const errorBranch = document.getElementById('errorBranch');
   errorBranch.innerHTML = '';
@@ -160,49 +175,12 @@ export const check_branch = () => {
   const branchValue = branch.value;
 
   if (branchValue.trim().length === 0) {
-    errorBranch.innerHTML = 'Branch Feld is required';
+    errorBranch.innerHTML = 'Please enter your Branch';
     branch.classList.add('error');
     return false;
   } else {
     errorBranch.innerHTML = '';
     branch.classList.remove('error');
-    return true;
-  }
-};
-
-export const check_password = () => {
-  const errorPassword = document.getElementById('errorPassword');
-  errorPassword.innerHTML = '';
-  var my_regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9]{6,16}$/;
-  const passwordValue = password.value;
-
-  if (passwordValue.trim().length === 0) {
-    errorPassword.innerHTML = 'Password is required';
-    password.classList.add('error');
-    return false;
-  } else if (passwordValue.length < 6) {
-    errorPassword.innerHTML = 'Password Minimum length is 6';
-    password.classList.add('error');
-    return false;
-  } else {
-    errorPassword.innerHTML = '';
-    password.classList.remove('error');
-    return true;
-  }
-};
-
-export const check_collage = () => {
-  const errorCollage = document.getElementById('errorCollage');
-  errorCollage.innerHTML = '';
-  var value = collage.options[collage.selectedIndex].value;
-
-  if (value === 'none') {
-    errorCollage.innerHTML = 'Select Your Collage';
-    collage.classList.add('error');
-    return false;
-  } else {
-    errorCollage.innerHTML = '';
-    collage.classList.remove('error');
     return true;
   }
 };
@@ -213,7 +191,7 @@ export const check_year = () => {
   var value = year.options[year.selectedIndex].value;
 
   if (value === 'none') {
-    errorYear.innerHTML = 'Select Your Year';
+    errorYear.innerHTML = 'Please select your current studying year';
     year.classList.add('error');
     return false;
   } else {
