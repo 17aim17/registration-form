@@ -6,6 +6,9 @@
     flex-direction: column;
     margin: 0;
   }
+  .animate {
+    display: none;
+  }
   .grid__left {
     margin-right: 0;
     margin-left: 0;
@@ -24,6 +27,16 @@
   }
   li:first-child {
     border: 0;
+  }
+
+  .button--div {
+    padding: 0;
+    background-color: #fff;
+  }
+
+  .button--div .btn--back {
+    margin: 1rem 0;
+    margin: 0;
   }
 }
 
@@ -60,13 +73,14 @@
   li:first-child {
     border: 0;
   }
+  .custom-file-input::after {
+    content: 'Your Image';
+    padding-left: 0rem;
+  }
+
   input:focus,
-  select:focus,
-  input:hover,
-  select:hover,
-  .custom-file-input:hover {
-    width: 85%;
-    transform: scale(1.1);
+  select:focus {
+    width: 90%;
   }
   .btn {
     align-self: center;

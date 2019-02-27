@@ -1,3 +1,22 @@
+const username = document.getElementById('username');
+
+const email = document.getElementById('email');
+
+const phone = document.getElementById('phone');
+
+const photo = document.getElementById('photo');
+
+const dob = document.getElementById('dob');
+
+const rollNo = document.getElementById('rollNo');
+
+const collage = document.getElementById('collage');
+
+const course = document.getElementById('course');
+
+const branch = document.getElementById('branch');
+
+const year = document.getElementById('year');
 export const check_email = () => {
   const emailError = document.getElementById('errorEmail');
   emailError.innerHTML = '';

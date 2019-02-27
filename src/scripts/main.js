@@ -13,6 +13,7 @@ import {
 import { modalFunction } from './model';
 const form = document.getElementById('submitform');
 
+let state = 0;
 // for personal details
 
 const username = document.getElementById('username');
@@ -37,7 +38,7 @@ phone.addEventListener('focusout', () => {
   check_phone();
 });
 
-photo.addEventListener('focusout', () => {
+photo.addEventListener('change', () => {
   check_photo();
 });
 
@@ -99,14 +100,16 @@ one.addEventListener('click', e => {
   section1.style.display = 'block';
 });
 
-two.addEventListener('click', e => {
-  one.classList.remove('selected');
-  section1.style.display = 'none';
+if (state === 1) {
+  two.addEventListener('click', e => {
+    one.classList.remove('selected');
+    section1.style.display = 'none';
 
-  backBtn.style.display = 'block';
-  two.classList.add('selected');
-  section2.style.display = 'block';
-});
+    backBtn.style.display = 'block';
+    two.classList.add('selected');
+    section2.style.display = 'block';
+  });
+}
 
 backBtn.addEventListener('click', e => {
   two.classList.remove('selected');
@@ -119,12 +122,28 @@ backBtn.addEventListener('click', e => {
 
 nextBtn.addEventListener('click', e => {
   e.preventDefault();
-  section1.style.display = 'none';
-  section2.style.display = 'block';
-  backBtn.style.display = 'block';
+  check_username();
+  check_email();
+  check_phone();
+  check_photo();
+  check_dob();
+  if (
+    check_username() &&
+    check_email() &&
+    check_phone() &&
+    check_photo() &&
+    check_dob()
+  ) {
+    state = 1;
+    section1.style.display = 'none';
+    section2.style.display = 'block';
+    backBtn.style.display = 'block';
 
-  two.classList.add('selected');
-  one.classList.remove('selected');
+    two.classList.add('selected');
+    one.classList.remove('selected');
+  } else {
+    modalFunction(`<p>Please Fill This page . Only Then You Can Proceed</p>`);
+  }
 });
 
 submitBtn.addEventListener('click', () => {
