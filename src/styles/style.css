@@ -143,11 +143,14 @@ li:hover {
 }
 
 label {
-  font-size: 1.8rem;
-  font-weight: 300;
+  font-size: 1.5rem;
   display: block;
-  margin-top: 2.4rem;
-  margin-bottom: 0.7rem;
+  position: relative;
+  top: 0;
+  left: 5rem;
+  margin-bottom: -1rem;
+  background-color: #fff;
+  width: 7rem;
 }
 
 input,
@@ -178,30 +181,25 @@ select:focus {
   border-color: #2ecc71;
   box-shadow: 0 0 0.5rem #31b43a;
 }
-input[type='date'] {
-  color: #212121;
-}
-input[type='date']::before {
-  content: 'Date-Of-Birth';
-}
+
 input[type='file'] {
-  padding: 0.7rem 1rem;
+  padding: 0.8rem 1rem;
   cursor: pointer;
   text-align: center;
-  color: transparent;
+  color: #212121;
 }
 
-.custom-file-input::-webkit-file-upload-button {
+input[type='file']::-webkit-file-upload-button {
   display: inline-block;
   padding: 5px 8px;
-  border: 1px solid #999;
+  border: 1px solid #fff;
+  -webkit-border-radius: 2rem;
   border-radius: 2rem;
 }
 
-.custom-file-input::after {
-  content: 'Profile Image';
+input[type='date'] {
   color: #212121;
-  padding-left: 1rem;
+  padding: 1.2rem;
   text-align: center;
 }
 

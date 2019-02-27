@@ -73,10 +73,6 @@
   li:first-child {
     border: 0;
   }
-  .custom-file-input::after {
-    content: 'Your Image';
-    padding-left: 0rem;
-  }
 
   input:focus,
   select:focus {
@@ -87,9 +83,7 @@
     width: 80%;
     margin: 4.5rem 0;
   }
-  .btn--submit:hover {
-    color: #fff;
-    box-shadow: none;
-    background-color: #068d72;
+  .button--div {
+    padding: 1rem 0 0 0;
   }
 }
