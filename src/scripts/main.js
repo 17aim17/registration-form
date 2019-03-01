@@ -38,9 +38,9 @@ phone.addEventListener('focusout', () => {
   check_phone();
 });
 
-photo.addEventListener('change', () => {
-  check_photo();
-});
+// photo.addEventListener('change', () => {
+//   check_photo();
+// });
 
 dob.addEventListener('focusout', () => {
   check_dob();
@@ -82,6 +82,7 @@ year.addEventListener('focusout', () => {
 const submitBtn = document.querySelector('.btn--submit');
 const nextBtn = document.querySelector('.btn--next');
 const backBtn = document.querySelector('.btn--back');
+const cancelBtn = document.querySelector('.btn--cancel');
 
 // sections
 const section1 = document.querySelector('.grid__form__one');
@@ -96,6 +97,7 @@ one.addEventListener('click', e => {
   two.classList.remove('selected');
   section2.style.display = 'none';
   backBtn.style.display = 'none';
+  cancelBtn.style.display = 'block';
   one.classList.add('selected');
   section1.style.display = 'block';
 });
@@ -104,7 +106,7 @@ if (state === 1) {
   two.addEventListener('click', e => {
     one.classList.remove('selected');
     section1.style.display = 'none';
-
+    cancelBtn.style.display = 'none';
     backBtn.style.display = 'block';
     two.classList.add('selected');
     section2.style.display = 'block';
@@ -115,7 +117,7 @@ backBtn.addEventListener('click', e => {
   two.classList.remove('selected');
   section2.style.display = 'none';
   backBtn.style.display = 'none';
-
+  cancelBtn.style.display = 'block';
   one.classList.add('selected');
   section1.style.display = 'block';
 });
@@ -125,20 +127,20 @@ nextBtn.addEventListener('click', e => {
   check_username();
   check_email();
   check_phone();
-  check_photo();
+  // check_photo();
   check_dob();
   if (
     check_username() &&
     check_email() &&
     check_phone() &&
-    check_photo() &&
+    // check_photo() &&
     check_dob()
   ) {
     state = 1;
     section1.style.display = 'none';
     section2.style.display = 'block';
     backBtn.style.display = 'block';
-
+    cancelBtn.style.display = 'none';
     two.classList.add('selected');
     one.classList.remove('selected');
   } else {
@@ -146,38 +148,35 @@ nextBtn.addEventListener('click', e => {
   }
 });
 
-submitBtn.addEventListener('click', () => {
-  form.addEventListener('submit', e => {
+submitBtn.addEventListener('click', e => {
+  check_username();
+  check_email();
+  check_phone();
+  check_photo();
+  check_dob();
+  check_rollNo();
+  check_collage();
+  check_course();
+  check_branch();
+  check_year();
+
+  if (
+    check_username() &&
+    check_email() &&
+    check_phone() &&
+    check_photo() &&
+    check_dob() &&
+    check_rollNo() &&
+    check_collage() &&
+    check_course() &&
+    check_branch() &&
+    check_year()
+  ) {
+    form.addEventListener('submit', e => {
+      console.log('You Form has been submitted');
+    });
+  } else {
     e.preventDefault();
-
-    check_username();
-    check_email();
-    check_phone();
-    check_photo();
-    check_dob();
-    check_rollNo();
-    check_collage();
-    check_course();
-    check_branch();
-    check_year();
-
-    if (
-      check_username() &&
-      check_email() &&
-      check_phone() &&
-      check_photo() &&
-      check_dob() &&
-      check_rollNo() &&
-      check_collage() &&
-      check_course() &&
-      check_branch() &&
-      check_year()
-    ) {
-      modalFunction(
-        `<p>Congratulations!! ,You filled the form successfully</p>`
-      );
-    } else {
-      modalFunction(`<p>Please Fill all required fields</p>`);
-    }
-  });
+    modalFunction(`<p>Please Fill all required fields</p>`);
+  }
 });
