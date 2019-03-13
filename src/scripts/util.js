@@ -4,7 +4,7 @@ const email = document.getElementById('email');
 
 const phone = document.getElementById('phone');
 
-const photo = document.getElementById('photo');
+// const photo = document.getElementById('photo');
 
 const dob = document.getElementById('dob');
 
@@ -50,7 +50,8 @@ export const check_username = () => {
     return false;
   } else if (
     !userNameValue.match(username_regex) ||
-    userNameValue.length > 30
+    userNameValue.length > 30 ||
+    userNameValue.length < 3
   ) {
     errorUsername.innerHTML =
       'Username should only contain a-z and 0-9 and max length is 30 characters';
@@ -84,33 +85,29 @@ export const check_phone = () => {
   }
 };
 
-export const check_photo = () => {
-  const errorPhoto = document.getElementById('errorPhoto');
-  errorPhoto.innerHTML = '';
-  const filePath = photo.value;
-  const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+// export const check_photo = () => {
+//   const errorPhoto = document.getElementById('errorPhoto');
+//   errorPhoto.innerHTML = '';
+//   const filePath = photo.value;
+//   const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
 
-  if (photo.value == '') {
-    errorPhoto.innerHTML = 'Please select your Image';
-    photo.classList.add('error');
-    return false;
-  } else if (!allowedExtensions.exec(filePath)) {
-    photo.value = '';
-    errorPhoto.innerHTML =
-      'Please upload file having extensions .jpeg/.jpg/.png/.gif only.';
-    photo.classList.add('error');
-    return false;
-  } else if (photo.files[0].size > 256000) {
-    errorPhoto.innerHTML = 'Photo size is greater than 250 kb.';
-    //  <a href="https://www.dcrustrhythm.org/how_to_resize_photo.html" target="_blank">Click here</a> to know how to reduce file size
-    photo.classList.add('error');
-    return false;
-  } else {
-    errorPhoto.innerHTML = '';
-    photo.classList.remove('error');
-    return true;
-  }
-};
+//   if (photo.value !== '' && !allowedExtensions.exec(filePath)) {
+//     photo.value = '';
+//     errorPhoto.innerHTML =
+//       'Please upload file having extensions .jpeg/.jpg/.png/.gif only.';
+//     photo.classList.add('error');
+//     return false;
+//   } else if (photo.value !== '' && photo.files[0].size > 256000) {
+//     errorPhoto.innerHTML = 'Photo size is greater than 250 kb.';
+//     //  <a href="https://www.dcrustrhythm.org/how_to_resize_photo.html" target="_blank">Click here</a> to know how to reduce file size
+//     photo.classList.add('error');
+//     return false;
+//   } else {
+//     errorPhoto.innerHTML = '';
+//     photo.classList.remove('error');
+//     return true;
+//   }
+// };
 
 export const check_dob = () => {
   const errorDob = document.getElementById('errorDob');

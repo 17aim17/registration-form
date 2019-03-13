@@ -2,7 +2,6 @@ import {
   check_username,
   check_email,
   check_phone,
-  check_photo,
   check_dob,
   check_rollNo,
   check_collage,
@@ -22,7 +21,7 @@ const email = document.getElementById('email');
 
 const phone = document.getElementById('phone');
 
-const photo = document.getElementById('photo');
+// const photo = document.getElementById('photo');
 
 const dob = document.getElementById('dob');
 
@@ -152,7 +151,6 @@ submitBtn.addEventListener('click', e => {
   check_username();
   check_email();
   check_phone();
-  check_photo();
   check_dob();
   check_rollNo();
   check_collage();
@@ -164,7 +162,6 @@ submitBtn.addEventListener('click', e => {
     check_username() &&
     check_email() &&
     check_phone() &&
-    check_photo() &&
     check_dob() &&
     check_rollNo() &&
     check_collage() &&
