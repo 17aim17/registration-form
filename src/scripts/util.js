@@ -170,10 +170,9 @@ export const check_collage = () => {
 export const check_course = () => {
   const errorCourse = document.getElementById('errorCourse');
   errorCourse.innerHTML = '';
-  var my_regex = /[a-zA-Z]|\s|\.*/;
-  const courseValue = course.value;
+  var value = course.options[collage.selectedIndex].value;
 
-  if (courseValue.trim().length === 0) {
+  if (value === 'none') {
     errorCourse.innerHTML = 'Please enter your Course';
     course.classList.add('error');
     return false;
@@ -187,10 +186,9 @@ export const check_course = () => {
 export const check_branch = () => {
   const errorBranch = document.getElementById('errorBranch');
   errorBranch.innerHTML = '';
-  var my_regex = /[a-zA-Z]|\s|\.*/;
-  const branchValue = branch.value;
+  var value = branch.options[collage.selectedIndex].value;
 
-  if (branchValue.trim().length === 0) {
+  if (value === 'none') {
     errorBranch.innerHTML = 'Please enter your Branch';
     branch.classList.add('error');
     return false;

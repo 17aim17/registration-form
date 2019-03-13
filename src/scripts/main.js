@@ -12,6 +12,10 @@ import {
 import { modalFunction } from './model';
 const form = document.getElementById('submitform');
 
+window.addEventListener('load', () => {
+  console.log('Working');
+});
+
 let state = 0;
 // for personal details
 
@@ -128,13 +132,7 @@ nextBtn.addEventListener('click', e => {
   check_phone();
   // check_photo();
   check_dob();
-  if (
-    check_username() &&
-    check_email() &&
-    check_phone() &&
-    // check_photo() &&
-    check_dob()
-  ) {
+  if (check_username() && check_email() && check_phone() && check_dob()) {
     state = 1;
     section1.style.display = 'none';
     section2.style.display = 'block';
