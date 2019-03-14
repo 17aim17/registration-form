@@ -144,8 +144,8 @@ export const check_dob = () => {
     errorDob.innerHTML = 'Please select your Date-Of-Birth';
     dob.classList.add('error');
     return false;
-  } else if (new Date(dob.value) >= current) {
-    errorDob.innerHTML = 'Current or Future dates not allowded';
+  } else if (current.getFullYear() - new Date(dobValue).getFullYear() < 10) {
+    errorDob.innerHTML = 'Please choose appropirate years ';
     dob.classList.add('error');
     return false;
   } else {
@@ -195,7 +195,7 @@ export const check_collage = () => {
 export const check_course = () => {
   const errorCourse = document.getElementById('errorCourse');
   errorCourse.innerHTML = '';
-  var value = course.options[collage.selectedIndex].value;
+  var value = course.options[course.selectedIndex].value;
 
   if (value === 'none') {
     errorCourse.innerHTML = 'Please enter your Course';
@@ -211,7 +211,7 @@ export const check_course = () => {
 export const check_branch = () => {
   const errorBranch = document.getElementById('errorBranch');
   errorBranch.innerHTML = '';
-  var value = branch.options[collage.selectedIndex].value;
+  var value = branch.options[branch.selectedIndex].value;
 
   if (value === 'none') {
     errorBranch.innerHTML = 'Please enter your Branch';
@@ -228,6 +228,8 @@ export const check_year = () => {
   const errorYear = document.getElementById('errorYear');
   errorYear.innerHTML = '';
   var value = year.options[year.selectedIndex].value;
+
+  console.log(value);
 
   if (value === 'none') {
     errorYear.innerHTML = 'Please select your current studying year';

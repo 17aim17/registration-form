@@ -72,6 +72,40 @@ course.addEventListener('focusout', () => {
   check_course();
 });
 
+const addOptions = max => {
+  year.innerHTML = ` <option selected value="none">Choose Your Year</option>`;
+  for (let i = 1; i <= max; i++) {
+    const option = document.createElement('option');
+    option.setAttribute('value', i);
+    if (i == 1) {
+      option.textContent = '1st';
+    } else if (i == 2) {
+      option.textContent = '2nd';
+    } else if (i == 3) {
+      option.textContent = '3rd';
+    } else {
+      option.textContent = i + 'th';
+    }
+    year.append(option);
+  }
+};
+
+course.addEventListener('change', () => {
+  const courseValue = course.value;
+  let max = 0;
+  if (courseValue == 'none') {
+    year.innerHTML = ` <option selected value="none">Choose Your Year</option>`;
+  } else if (courseValue == 1) {
+    max = 4;
+  } else if (courseValue == 2 || courseValue == 5 || courseValue == 4) {
+    max = 2;
+  } else if (courseValue == 3) {
+    max = 3;
+  }
+
+  addOptions(max);
+});
+
 branch.addEventListener('focusout', () => {
   check_branch();
 });
