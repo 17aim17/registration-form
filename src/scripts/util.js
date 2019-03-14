@@ -1,6 +1,8 @@
-const username = document.getElementById('username');
+const fullname = document.getElementById('fullname');
 
-const email = document.getElementById('email');
+// const username = document.getElementById('username');
+
+// const email = document.getElementById('email');
 
 const phone = document.getElementById('phone');
 
@@ -17,52 +19,75 @@ const course = document.getElementById('course');
 const branch = document.getElementById('branch');
 
 const year = document.getElementById('year');
-export const check_email = () => {
-  const emailError = document.getElementById('errorEmail');
-  emailError.innerHTML = '';
-  const emial_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const emailValue = email.value;
 
-  if (emailValue.trim().length == 0) {
-    emailError.innerHTML = 'Please enter email';
-    email.classList.add('error');
+export const check_fullname = () => {
+  const errorFullname = document.getElementById('errorFullname');
+  errorFullname.innerHTML = '';
+  const name_regex = /^[a-zA-Z .]*$/;
+  const fullnameValue = fullname.value;
+
+  if (fullnameValue.trim().length == 0) {
+    errorFullname.innerHTML = 'Please enter your Name';
+    fullname.classList.add('error');
     return false;
-  } else if (!emailValue.match(emial_regex)) {
-    emailError.innerHTML = 'Email is Invalid';
-    email.classList.add('error');
+  } else if (!fullnameValue.match(name_regex)) {
+    errorFullname.innerHTML =
+      'Name should only contain letters. Do not use Special Characters';
+    fullname.classList.add('error');
     return false;
   } else {
-    emailError.innerHTML = '';
-    email.classList.remove('error');
+    errorFullname.innerHTML = '';
+    fullname.classList.remove('error');
     return true;
   }
 };
 
-export const check_username = () => {
-  const errorUsername = document.getElementById('errorUsername');
-  errorUsername.innerHTML = '';
-  const username_regex = /^[a-z0-9]*$/;
-  const userNameValue = username.value;
+// export const check_email = () => {
+//   const emailError = document.getElementById('errorEmail');
+//   emailError.innerHTML = '';
+//   const emial_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   const emailValue = email.value;
 
-  if (userNameValue.trim().length == 0) {
-    errorUsername.innerHTML = 'Please enter username';
-    username.classList.add('error');
-    return false;
-  } else if (
-    !userNameValue.match(username_regex) ||
-    userNameValue.length > 30 ||
-    userNameValue.length < 3
-  ) {
-    errorUsername.innerHTML =
-      'Username should only contain a-z and 0-9 and max length is 30 characters';
-    username.classList.add('error');
-    return false;
-  } else {
-    errorUsername.innerHTML = '';
-    username.classList.remove('error');
-    return true;
-  }
-};
+//   if (emailValue.trim().length == 0) {
+//     emailError.innerHTML = 'Please enter email';
+//     email.classList.add('error');
+//     return false;
+//   } else if (!emailValue.match(emial_regex)) {
+//     emailError.innerHTML = 'Email is Invalid';
+//     email.classList.add('error');
+//     return false;
+//   } else {
+//     emailError.innerHTML = '';
+//     email.classList.remove('error');
+//     return true;
+//   }
+// };
+
+// export const check_username = () => {
+//   const errorUsername = document.getElementById('errorUsername');
+//   errorUsername.innerHTML = '';
+//   const username_regex = /^[a-z0-9]*$/;
+//   const userNameValue = username.value;
+
+//   if (userNameValue.trim().length == 0) {
+//     errorUsername.innerHTML = 'Please enter username';
+//     username.classList.add('error');
+//     return false;
+//   } else if (
+//     !userNameValue.match(username_regex) ||
+//     userNameValue.length > 30 ||
+//     userNameValue.length < 3
+//   ) {
+//     errorUsername.innerHTML =
+//       'Username should only contain a-z and 0-9 and max length is 30 characters';
+//     username.classList.add('error');
+//     return false;
+//   } else {
+//     errorUsername.innerHTML = '';
+//     username.classList.remove('error');
+//     return true;
+//   }
+// };
 
 export const check_phone = () => {
   const errorPhone = document.getElementById('errorPhone');

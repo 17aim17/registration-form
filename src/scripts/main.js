@@ -1,6 +1,5 @@
 import {
-  check_username,
-  check_email,
+  check_fullname,
   check_phone,
   check_dob,
   check_rollNo,
@@ -12,16 +11,13 @@ import {
 import { modalFunction } from './model';
 const form = document.getElementById('submitform');
 
-window.addEventListener('load', () => {
-  console.log('Working');
-});
-
-let state = 0;
 // for personal details
 
-const username = document.getElementById('username');
+const fullname = document.getElementById('fullname');
 
-const email = document.getElementById('email');
+// const username = document.getElementById('username');
+
+// const email = document.getElementById('email');
 
 const phone = document.getElementById('phone');
 
@@ -29,13 +25,17 @@ const phone = document.getElementById('phone');
 
 const dob = document.getElementById('dob');
 
-username.addEventListener('focusout', () => {
-  check_username();
+fullname.addEventListener('focusout', () => {
+  check_fullname();
 });
 
-email.addEventListener('focusout', () => {
-  check_email();
-});
+// username.addEventListener('focusout', () => {
+//   check_username();
+// });
+
+// email.addEventListener('focusout', () => {
+//   check_email();
+// });
 
 phone.addEventListener('focusout', () => {
   check_phone();
@@ -105,17 +105,6 @@ one.addEventListener('click', e => {
   section1.style.display = 'block';
 });
 
-if (state === 1) {
-  two.addEventListener('click', e => {
-    one.classList.remove('selected');
-    section1.style.display = 'none';
-    cancelBtn.style.display = 'none';
-    backBtn.style.display = 'block';
-    two.classList.add('selected');
-    section2.style.display = 'block';
-  });
-}
-
 backBtn.addEventListener('click', e => {
   two.classList.remove('selected');
   section2.style.display = 'none';
@@ -127,13 +116,10 @@ backBtn.addEventListener('click', e => {
 
 nextBtn.addEventListener('click', e => {
   e.preventDefault();
-  check_username();
-  check_email();
+  check_fullname();
   check_phone();
-  // check_photo();
   check_dob();
-  if (check_username() && check_email() && check_phone() && check_dob()) {
-    state = 1;
+  if (check_fullname() && check_phone() && check_dob()) {
     section1.style.display = 'none';
     section2.style.display = 'block';
     backBtn.style.display = 'block';
@@ -145,9 +131,24 @@ nextBtn.addEventListener('click', e => {
   }
 });
 
+two.addEventListener('click', e => {
+  check_fullname();
+  check_phone();
+  check_dob();
+  if (check_fullname() && check_phone() && check_dob()) {
+    one.classList.remove('selected');
+    two.classList.add('selected');
+    section1.style.display = 'none';
+    section2.style.display = 'block';
+    backBtn.style.display = 'block';
+    cancelBtn.style.display = 'none';
+  } else {
+    modalFunction(`<p>Please Fill This page . Only Then You Can Proceed</p>`);
+  }
+});
+
 submitBtn.addEventListener('click', e => {
-  check_username();
-  check_email();
+  check_fullname();
   check_phone();
   check_dob();
   check_rollNo();
@@ -157,8 +158,7 @@ submitBtn.addEventListener('click', e => {
   check_year();
 
   if (
-    check_username() &&
-    check_email() &&
+    check_fullname() &&
     check_phone() &&
     check_dob() &&
     check_rollNo() &&
