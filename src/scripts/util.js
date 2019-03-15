@@ -1,9 +1,5 @@
 const fullname = document.getElementById('fullname');
 
-// const username = document.getElementById('username');
-
-// const email = document.getElementById('email');
-
 const phone = document.getElementById('phone');
 
 // const photo = document.getElementById('photo');
@@ -41,53 +37,6 @@ export const check_fullname = () => {
     return true;
   }
 };
-
-// export const check_email = () => {
-//   const emailError = document.getElementById('errorEmail');
-//   emailError.innerHTML = '';
-//   const emial_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//   const emailValue = email.value;
-
-//   if (emailValue.trim().length == 0) {
-//     emailError.innerHTML = 'Please enter email';
-//     email.classList.add('error');
-//     return false;
-//   } else if (!emailValue.match(emial_regex)) {
-//     emailError.innerHTML = 'Email is Invalid';
-//     email.classList.add('error');
-//     return false;
-//   } else {
-//     emailError.innerHTML = '';
-//     email.classList.remove('error');
-//     return true;
-//   }
-// };
-
-// export const check_username = () => {
-//   const errorUsername = document.getElementById('errorUsername');
-//   errorUsername.innerHTML = '';
-//   const username_regex = /^[a-z0-9]*$/;
-//   const userNameValue = username.value;
-
-//   if (userNameValue.trim().length == 0) {
-//     errorUsername.innerHTML = 'Please enter username';
-//     username.classList.add('error');
-//     return false;
-//   } else if (
-//     !userNameValue.match(username_regex) ||
-//     userNameValue.length > 30 ||
-//     userNameValue.length < 3
-//   ) {
-//     errorUsername.innerHTML =
-//       'Username should only contain a-z and 0-9 and max length is 30 characters';
-//     username.classList.add('error');
-//     return false;
-//   } else {
-//     errorUsername.innerHTML = '';
-//     username.classList.remove('error');
-//     return true;
-//   }
-// };
 
 export const check_phone = () => {
   const errorPhone = document.getElementById('errorPhone');
@@ -180,6 +129,7 @@ export const check_collage = () => {
   const errorCollage = document.getElementById('errorCollage');
   errorCollage.innerHTML = '';
   var value = collage.options[collage.selectedIndex].value;
+  // console.log(value);
 
   if (value === 'none') {
     errorCollage.innerHTML = 'Please select your Collage';
@@ -196,6 +146,7 @@ export const check_course = () => {
   const errorCourse = document.getElementById('errorCourse');
   errorCourse.innerHTML = '';
   var value = course.options[course.selectedIndex].value;
+  // console.log(value);
 
   if (value === 'none') {
     errorCourse.innerHTML = 'Please enter your Course';
@@ -212,6 +163,7 @@ export const check_branch = () => {
   const errorBranch = document.getElementById('errorBranch');
   errorBranch.innerHTML = '';
   var value = branch.options[branch.selectedIndex].value;
+  // console.log(value);
 
   if (value === 'none') {
     errorBranch.innerHTML = 'Please enter your Branch';
@@ -228,6 +180,7 @@ export const check_year = () => {
   const errorYear = document.getElementById('errorYear');
   errorYear.innerHTML = '';
   var value = year.options[year.selectedIndex].value;
+  // console.log(value);
 
   if (value === 'none') {
     errorYear.innerHTML = 'Please select your current studying year';
