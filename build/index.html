@@ -14,152 +14,134 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="grid">
-        <div class="grid__left">
-          <ul class="steps">
-            <li class="selected one">Personal Details</li>
-            <li class="two">College Details</li>
-          </ul>
-          <div class="animate">
-            <img src="./images/download.png" alt="" srcset="" />
-          </div>
+      <form
+        action=""
+        id="submitform"
+        class="form"
+        enctype="multipart/form-data"
+        method="post"
+        autocomplete="off"
+      >
+        <!-- section top -->
 
-          <div class="button--div">
-            <a href="#" class="btn btn--cancel">Home</a>
-            <button type="button" class="btn btn--back">Go Back</button>
-          </div>
-        </div>
-        <div class="grid__right">
-          <form
-            action=""
-            id="submitform"
-            class="form"
-            enctype="multipart/form-data"
-            method="post"
-            autocomplete="off"
-          >
-            <div class="grid__form">
-              <!-- Here starts section 1 -->
-              <div class="grid__form__one">
-                <h1 class="animated flipInY">Personal Details</h1>
-                <p class="animated fadeInLeft">
-                  Please enter your infomation and proceed to the next step so
-                  we can build your profile.
-                </p>
+        <!-- <div class="top">
+          <p class="animated fadeInLeft">
+            Please enter your infomation and proceed to the next step so we can
+            build your profile.
+          </p>
+        </div> -->
 
-                <div class="form-group animated fadeInRight">
-                  <p class="invalid" id="errorUsername"></p>
-                  <label style="width:84px">Username</label>
-                  <input type="text" name="username" id="username" />
-                </div>
-                <div class="form-group animated fadeInLeft">
-                  <p class="invalid" id="errorEmail"></p>
-                  <label>E-mail</label>
-                  <input type="email" name="email" id="email" />
-                </div>
-
-                <div class="form-group animated fadeInRight ">
-                  <p class="invalid" id="errorFullname"></p>
-                  <label style="width:120px">First name</label>
-                  <input type="text" name="fullname" id="fullname" />
-                </div>
-
-                <div class="form-group animated fadeInLeft ">
-                  <p class="invalid" id="lastname"></p>
-                  <label style="width:120px">Last name</label>
-                  <input type="text" name="lastname" />
-                </div>
-
-                <div class="form-group animated fadeInRight">
-                  <p class="invalid" id="errorPhone"></p>
-                  <label>Contact</label>
-                  <input type="text" name="phone" id="phone" />
-                </div>
-
-                <!-- <div class="form-group animated fadeInLeft ">
-                  <p class="invalid" id="errorPhoto"></p>
-                  <label>Image</label>
-                  <input type="file" name="photo" id="photo" />
-                </div> -->
-
-                <div class="form-group animated fadeInUp">
-                  <p class="invalid" id="errorDob"></p>
-
-                  <label style="width: 140px;">Date-Of-Birth</label>
-                  <input type="date" name="dob" id="dob" />
-                </div>
-
-                <button class="btn btn--next" type="button">Next</button>
-              </div>
-
-              <!-- Here starts section 2 -->
-              <div class="grid__form__two">
-                <h1 class="animated flipInY">College Details</h1>
-                <p class="animated fadeInLeft">
-                  Fill Your University/Collage Details
-                </p>
-
-                <div class="form-group  animated fadeInRight">
-                  <p class="invalid" id="errorRoll"></p>
-                  <label>Roll No.</label>
-                  <input type="text" name="rollNo" id="rollNo" />
-                </div>
-
-                <div class="form-group  animated fadeInLeft">
-                  <p class="invalid" id="errorCollage"></p>
-                  <label>Collage</label>
-                  <select name="collage" id="collage" class="select-dropdown">
-                    <option selected value="none">Choose Your College</option>
-                    <option value="1">DCRUST</option>
-                  </select>
-                </div>
-
-                <div class="form-group  animated fadeInRight">
-                  <p class="invalid" id="errorCourse"></p>
-                  <label>Course</label>
-                  <select name="course" id="course" class="select-dropdown">
-                    <option selected value="none">Choose Your Course</option>
-                    <option value="1">B.tech</option>
-                    <option value="2">M.tech</option>
-                    <option value="3">B.sc</option>
-                    <option value="4">M.sc</option>
-                    <option value="5">Managment</option>
-                  </select>
-                </div>
-
-                <div class="form-group  animated fadeInLeft">
-                  <p class="invalid" id="errorBranch"></p>
-                  <label>Branch</label>
-                  <select name="branch" id="branch" class="select-dropdown">
-                    <option selected value="none">Choose Your Branch</option>
-                    <option value="1">CSE</option>
-                    <option value="2">ECE</option>
-                  </select>
-                </div>
-
-                <div class="form-group  animated fadeInUp">
-                  <p class="invalid" id="errorYear"></p>
-                  <label>Year</label>
-                  <select name="year" id="year" class="select-dropdown">
-                    <option selected value="none">Choose Your Year</option>
-                  </select>
-                </div>
-
-                <button class="btn btn--submit" type="submit">Submit</button>
-              </div>
+        <!-- section middle  -->
+        <div class="grid__form">
+          <!-- Here starts section 1 -->
+          <div class="grid__form__one">
+            <div class="header" id="header1">
+              <div class="number">1</div>
+              <h1 class="animated flipInY">
+                Personal Details
+              </h1>
             </div>
-          </form>
-        </div>
-      </div>
 
-      <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <div id="model-message"></div>
+            <div class="form-group  animated fadeInLeft">
+              <a href="http://" class="btn btn--cancel">Home</a>
+            </div>
+
+            <div class="form-group animated fadeInRight ">
+              <p class="invalid" id="errorFullname"></p>
+              <label style="width:120px">First name</label>
+              <input type="text" name="fullname" id="fullname" />
+            </div>
+
+            <div class="form-group animated fadeInLeft ">
+              <p class="invalid" id="lastname"></p>
+              <label style="width:120px">Last name</label>
+              <input type="text" name="lastname" />
+            </div>
+
+            <div class="form-group animated fadeInRight">
+              <p class="invalid" id="errorPhone"></p>
+              <label>Contact</label>
+              <input type="text" name="phone" id="phone" />
+            </div>
+
+            <div class="form-group animated fadeInUp">
+              <p class="invalid" id="errorDob"></p>
+              <label style="width: 140px;">Date-Of-Birth</label>
+              <input type="date" name="dob" id="dob" />
+            </div>
+          </div>
+
+          <!-- Here starts section 2 -->
+          <div class="grid__form__two">
+            <div class="header" id="header2">
+              <div class="number">2</div>
+              <h1 class="animated flipInY">
+                College Details
+              </h1>
+            </div>
+
+            <div class="form-group  animated fadeInRight">
+              <p class="invalid" id="errorRoll"></p>
+              <label>Roll No.</label>
+              <input type="text" name="rollNo" id="rollNo" />
+            </div>
+
+            <div class="form-group  animated fadeInLeft">
+              <p class="invalid" id="errorCollage"></p>
+              <label>Collage</label>
+              <select name="collage" id="collage" class="select-dropdown">
+                <option selected value="none">Choose Your College</option>
+                <option value="1">DCRUST</option>
+              </select>
+            </div>
+
+            <div class="form-group  animated fadeInRight">
+              <p class="invalid" id="errorCourse"></p>
+              <label>Course</label>
+              <select name="course" id="course" class="select-dropdown">
+                <option selected value="none">Choose Your Course</option>
+                <option value="1">B.tech</option>
+                <option value="2">M.tech</option>
+                <option value="3">B.sc</option>
+                <option value="4">M.sc</option>
+                <option value="5">Managment</option>
+              </select>
+            </div>
+
+            <div class="form-group  animated fadeInLeft">
+              <p class="invalid" id="errorBranch"></p>
+              <label>Branch</label>
+              <select name="branch" id="branch" class="select-dropdown">
+                <option selected value="none">Choose Your Branch</option>
+                <option value="1">CSE</option>
+                <option value="2">ECE</option>
+              </select>
+            </div>
+
+            <div class="form-group  animated fadeInUp">
+              <p class="invalid" id="errorYear"></p>
+              <label>Year</label>
+              <select name="year" id="year" class="select-dropdown">
+                <option selected value="none">Choose Your Year</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <!-- section bottom -->
+        <div class="bottom">
+          <button class="btn btn--submit" type="submit">Submit</button>
+        </div>
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="model-message"></div>
+          </div>
+        </div>
+      </form>
     </div>
+
     <script src="./bundle.js"></script>
   </body>
 </html>

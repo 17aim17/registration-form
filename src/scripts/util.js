@@ -229,8 +229,6 @@ export const check_year = () => {
   errorYear.innerHTML = '';
   var value = year.options[year.selectedIndex].value;
 
-  console.log(value);
-
   if (value === 'none') {
     errorYear.innerHTML = 'Please select your current studying year';
     year.classList.add('error');
