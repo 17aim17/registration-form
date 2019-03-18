@@ -2,8 +2,6 @@ const fullname = document.getElementById('fullname');
 
 const phone = document.getElementById('phone');
 
-// const photo = document.getElementById('photo');
-
 const dob = document.getElementById('dob');
 
 const rollNo = document.getElementById('rollNo');
@@ -59,30 +57,6 @@ export const check_phone = () => {
   }
 };
 
-// export const check_photo = () => {
-//   const errorPhoto = document.getElementById('errorPhoto');
-//   errorPhoto.innerHTML = '';
-//   const filePath = photo.value;
-//   const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
-
-//   if (photo.value !== '' && !allowedExtensions.exec(filePath)) {
-//     photo.value = '';
-//     errorPhoto.innerHTML =
-//       'Please upload file having extensions .jpeg/.jpg/.png/.gif only.';
-//     photo.classList.add('error');
-//     return false;
-//   } else if (photo.value !== '' && photo.files[0].size > 256000) {
-//     errorPhoto.innerHTML = 'Photo size is greater than 250 kb.';
-//     //  <a href="https://www.dcrustrhythm.org/how_to_resize_photo.html" target="_blank">Click here</a> to know how to reduce file size
-//     photo.classList.add('error');
-//     return false;
-//   } else {
-//     errorPhoto.innerHTML = '';
-//     photo.classList.remove('error');
-//     return true;
-//   }
-// };
-
 export const check_dob = () => {
   const errorDob = document.getElementById('errorDob');
   errorDob.innerHTML = '';
@@ -91,6 +65,7 @@ export const check_dob = () => {
 
   if (!dobValue) {
     errorDob.innerHTML = 'Please select your Date-Of-Birth';
+    // errorDob.setCustomValidity('Please select your Date-Of-Birth');
     dob.classList.add('error');
     return false;
   } else if (current.getFullYear() - new Date(dobValue).getFullYear() < 10) {
@@ -129,7 +104,7 @@ export const check_collage = () => {
   const errorCollage = document.getElementById('errorCollage');
   errorCollage.innerHTML = '';
   var value = collage.options[collage.selectedIndex].value;
-  // console.log(value);
+  console.log(value);
 
   if (value === 'none') {
     errorCollage.innerHTML = 'Please select your Collage';
@@ -146,7 +121,7 @@ export const check_course = () => {
   const errorCourse = document.getElementById('errorCourse');
   errorCourse.innerHTML = '';
   var value = course.options[course.selectedIndex].value;
-  // console.log(value);
+  console.log(value);
 
   if (value === 'none') {
     errorCourse.innerHTML = 'Please enter your Course';
@@ -163,7 +138,7 @@ export const check_branch = () => {
   const errorBranch = document.getElementById('errorBranch');
   errorBranch.innerHTML = '';
   var value = branch.options[branch.selectedIndex].value;
-  // console.log(value);
+  console.log(value);
 
   if (value === 'none') {
     errorBranch.innerHTML = 'Please enter your Branch';
@@ -180,7 +155,7 @@ export const check_year = () => {
   const errorYear = document.getElementById('errorYear');
   errorYear.innerHTML = '';
   var value = year.options[year.selectedIndex].value;
-  // console.log(value);
+  console.log(value);
 
   if (value === 'none') {
     errorYear.innerHTML = 'Please select your current studying year';

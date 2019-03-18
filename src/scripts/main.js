@@ -9,19 +9,12 @@ import {
   check_year
 } from './util';
 import { modalFunction } from './model';
-const form = document.getElementById('submitform');
 
 // for personal details
 
 const fullname = document.getElementById('fullname');
 
-// const username = document.getElementById('username');
-
-// const email = document.getElementById('email');
-
 const phone = document.getElementById('phone');
-
-// const photo = document.getElementById('photo');
 
 const dob = document.getElementById('dob');
 
@@ -29,21 +22,9 @@ fullname.addEventListener('focusout', () => {
   check_fullname();
 });
 
-// username.addEventListener('focusout', () => {
-//   check_username();
-// });
-
-// email.addEventListener('focusout', () => {
-//   check_email();
-// });
-
 phone.addEventListener('focusout', () => {
   check_phone();
 });
-
-// photo.addEventListener('change', () => {
-//   check_photo();
-// });
 
 dob.addEventListener('focusout', () => {
   check_dob();
@@ -74,7 +55,7 @@ course.addEventListener('focusout', () => {
 
 window.addEventListener('load', () => {
   collage.innerHTML = ` <option selected value="none">Choose Your College</option>
-  <option value="Dcrust Main Campus">1. Dcrust Main Campus</option>
+  <option value="Deenbandhu Chhotu Ram University Of Science And Technology,Murthal">1. Deenbandhu Chhotu Ram University Of Science And Technology,Murthal</option>
   <option value="Bhagwan Parshuram College of Engineering"
     >2. Bhagwan Parshuram College of Engineering</option
   >
@@ -157,7 +138,9 @@ window.addEventListener('load', () => {
  <option value="Master of Computer Applications"
    >12. Master of Computer Applications</option
  >
- <option value="BCA Integrated">13. BCA Integrated</option>`;
+ <option value="BCA Integrated">13. BCA Integrated</option>
+ <option value="Doctor of Philosophy">14. Doctor of Philosophy</option>
+ `;
 });
 
 const addYears = max => {
@@ -196,6 +179,7 @@ course.addEventListener('change', () => {
                 <option  value ="Electrical Engineering">6. Electrical Engineering</option>
                 <option  value ="Electronics & Communication Engineering">7. Electronics & Communication Engineering</option>
                 <option  value ="Mechanical Engineering">8. Mechanical Engineering</option>
+                <option  value ="Others">9. Others</option>
     `;
     addYears(4);
   } else if (courseValue == 'Master of Technology') {
@@ -210,9 +194,26 @@ course.addEventListener('change', () => {
                 <option  value ="Electronics & Communication Engineering">7. Electronics & Communication Engineering</option>
                 <option  value ="Mechanical Engineering">8. Mechanical Engineering</option>
                 <option  value ="Center of Excellence and Environmental Studies">9. Center of Excellence and Environmental Studies</option>
+                <option  value ="Others">9. Others</option>
                 
     `;
     addYears(2);
+  } else if (courseValue == 'Doctor of Philosophy') {
+    branch.innerHTML = `
+                <option selected value ="none">Choose Your Branch</option>
+                <option  value ="Biomedical Engineering">1. Biomedical Engineering</option>
+                <option  value ="Biotechnology">2. Biotechnology</option>
+                <option  value ="Civil  Engineering">3. Civil  Engineering</option>
+                <option  value ="Computer Science Engineering">4. Computer Science Engineering</option>
+                <option  value ="Chemical Engineering">5. Chemical Engineering</option>
+                <option  value ="Electrical Engineering">6. Electrical Engineering</option>
+                <option  value ="Electronics & Communication Engineering">7. Electronics & Communication Engineering</option>
+                <option  value ="Mechanical Engineering">8. Mechanical Engineering</option>
+                <option  value ="Center of Excellence and Environmental Studies">9. Center of Excellence and Environmental Studies</option>
+                <option  value ="Others">10. Others</option>
+                
+    `;
+    addYears(3);
   } else if (courseValue == 'Bachelor of Science') {
     branch.innerHTML = `
                 <option selected value ="none">Choose Your Branch</option>
@@ -303,33 +304,20 @@ year.addEventListener('focusout', () => {
   check_year();
 });
 
-// buttons
+const form = document.getElementById('submitform');
 
-const submitBtn = document.querySelector('.btn--submit');
+form.addEventListener('submit', e => {
+  const a = check_fullname();
+  const b = check_phone();
+  const c = check_dob();
+  const d = check_rollNo();
+  const ex = check_collage();
+  const f = check_course();
+  const g = check_branch();
+  const h = check_year();
 
-submitBtn.addEventListener('click', e => {
-  check_fullname();
-  check_phone();
-  check_dob();
-  check_rollNo();
-  check_collage();
-  check_course();
-  check_branch();
-  check_year();
-
-  if (
-    check_fullname() &&
-    check_phone() &&
-    check_dob() &&
-    check_rollNo() &&
-    check_collage() &&
-    check_course() &&
-    check_branch() &&
-    check_year()
-  ) {
-    form.addEventListener('submit', e => {
-      console.log('You Form has been submitted');
-    });
+  if (a && b && c && d && ex && f && g && h) {
+    console.log('You Form has been submitted');
   } else {
     e.preventDefault();
     modalFunction(`<p>Please Fill all required fields</p>`);
