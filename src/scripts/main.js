@@ -120,6 +120,9 @@ window.addEventListener('load', () => {
   >
   <option value="World School of Planning & Architecture"
     >19. World School of Planning & Architecture</option
+  >
+  <option value="Others"
+    >20. Others</option
   >`;
 
   course.innerHTML = ` 
@@ -206,6 +209,8 @@ course.addEventListener('change', () => {
                 <option  value ="Electrical Engineering">6. Electrical Engineering</option>
                 <option  value ="Electronics & Communication Engineering">7. Electronics & Communication Engineering</option>
                 <option  value ="Mechanical Engineering">8. Mechanical Engineering</option>
+                <option  value ="Center of Excellence and Environmental Studies">9. Center of Excellence and Environmental Studies</option>
+                
     `;
     addYears(2);
   } else if (courseValue == 'Bachelor of Science') {
@@ -223,6 +228,7 @@ course.addEventListener('change', () => {
                 <option  value ="Physics">1. Physics</option>
                 <option  value ="Chemistry">2. Chemistry</option>
                 <option  value ="Maths">3. Maths</option>
+                <option  value ="Center of Excellence and Environmental Studies">4. Center of Excellence and Environmental Studies</option>
   
     `;
     addYears(2);
@@ -232,9 +238,10 @@ course.addEventListener('change', () => {
                 <option  value ="Physics">1. Physics</option>
                 <option  value ="Chemistry">2. Chemistry</option>
                 <option  value ="Maths">3. Maths</option>
+                <option  value ="Center of Excellence and Environmental Studies">4. Center of Excellence and Environmental Studies</option>
   
     `;
-    addYears(4);
+    addYears(5);
   } else if (courseValue == 'Bachelor of Business Administration') {
     branch.innerHTML = `
                 <option selected value ="none">Choose Your Branch</option>
@@ -252,7 +259,7 @@ course.addEventListener('change', () => {
                 <option selected value ="none">Choose Your Branch</option>
                 <option  value ="BBA Integrated">1. BBA Integrated</option>  
     `;
-    addYears(4);
+    addYears(5);
   } else if (courseValue == 'Bachelor of Architecture') {
     branch.innerHTML = `
                 <option selected value ="none">Choose Your Branch</option>
@@ -282,9 +289,9 @@ course.addEventListener('change', () => {
                 <option selected value ="none">Choose Your Branch</option>
                 <option  value ="BCA Integrated">1. BCA Integrated</option>  
     `;
-    addYears(4);
+    addYears(5);
   } else {
-    addYears(4);
+    addYears(5);
   }
 });
 
