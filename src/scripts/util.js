@@ -110,6 +110,28 @@ export const check_collage = () => {
     errorCollage.innerHTML = 'Please select your Collage';
     collage.classList.add('error');
     return false;
+  } else if (value == 'Others') {
+    const result = check_collageOther();
+    return result == true;
+  } else {
+    errorCollage.innerHTML = '';
+    collage.classList.remove('error');
+    return true;
+  }
+};
+
+export const check_collageOther = () => {
+  const collageOther = document.getElementById('collageOther');
+  const errorCollageOther = document.getElementById('errorCollageOther');
+  const collageOtherValue = collageOther.value;
+
+  errorCollageOther.innerHTML = '';
+  collageOther.classList.remove('error');
+
+  if (collageOtherValue.trim().length == 0) {
+    errorCollageOther.innerHTML = 'Please specify your Collage';
+    collageOther.classList.add('error');
+    return false;
   } else {
     errorCollage.innerHTML = '';
     collage.classList.remove('error');
@@ -121,7 +143,7 @@ export const check_course = () => {
   const errorCourse = document.getElementById('errorCourse');
   errorCourse.innerHTML = '';
   var value = course.options[course.selectedIndex].value;
-  console.log(value);
+  // console.log(value);
 
   if (value === 'none') {
     errorCourse.innerHTML = 'Please enter your Course';
@@ -138,7 +160,7 @@ export const check_branch = () => {
   const errorBranch = document.getElementById('errorBranch');
   errorBranch.innerHTML = '';
   var value = branch.options[branch.selectedIndex].value;
-  console.log(value);
+  // console.log(value);
 
   if (value === 'none') {
     errorBranch.innerHTML = 'Please enter your Branch';
@@ -155,7 +177,7 @@ export const check_year = () => {
   const errorYear = document.getElementById('errorYear');
   errorYear.innerHTML = '';
   var value = year.options[year.selectedIndex].value;
-  console.log(value);
+  // console.log(value);
 
   if (value === 'none') {
     errorYear.innerHTML = 'Please select your current studying year';

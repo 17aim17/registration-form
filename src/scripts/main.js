@@ -4,6 +4,7 @@ import {
   check_dob,
   check_rollNo,
   check_collage,
+  check_collageOther,
   check_course,
   check_branch,
   check_year
@@ -140,7 +141,31 @@ window.addEventListener('load', () => {
  >
  <option value="BCA Integrated">13. BCA Integrated</option>
  <option value="Doctor of Philosophy">14. Doctor of Philosophy</option>
+ <option value="Others">15. Others</option>
  `;
+});
+
+// for others Collage
+collage.addEventListener('change', e => {
+  const collageDiv = document.querySelector('.collageDiv');
+  const value = collage.value;
+  if (value == 'Others') {
+    const div = document.createElement('div');
+    div.classList.add('form-group', 'collageOther');
+    div.innerHTML = `
+    <p class="invalid" id="errorCollageOther"></p>
+    <label style="width:140px">Collage Name</label>
+    <input type="text" name="collageOther" id="collageOther">
+    `;
+    collageDiv.append(div);
+    const collageOther = document.getElementById('collageOther');
+    collageOther.addEventListener('focusout', () => {
+      check_collageOther();
+    });
+  } else {
+    const elem = document.querySelector('.collageOther');
+    if (elem) elem.parentElement.removeChild(elem);
+  }
 });
 
 const addYears = max => {
@@ -220,6 +245,7 @@ course.addEventListener('change', () => {
                 <option  value ="Physics">1. Physics</option>
                 <option  value ="Chemistry">2. Chemistry</option>
                 <option  value ="Maths">3. Maths</option>
+                <option  value ="Others">4. Others</option>
   
     `;
     addYears(3);
@@ -230,6 +256,7 @@ course.addEventListener('change', () => {
                 <option  value ="Chemistry">2. Chemistry</option>
                 <option  value ="Maths">3. Maths</option>
                 <option  value ="Center of Excellence and Environmental Studies">4. Center of Excellence and Environmental Studies</option>
+                <option  value ="Others">4. Others</option>
   
     `;
     addYears(2);
@@ -239,7 +266,9 @@ course.addEventListener('change', () => {
                 <option  value ="Physics">1. Physics</option>
                 <option  value ="Chemistry">2. Chemistry</option>
                 <option  value ="Maths">3. Maths</option>
-                <option  value ="Center of Excellence and Environmental Studies">4. Center of Excellence and Environmental Studies</option>
+                <option  value ="Biotechology">4. Biotechology</option>
+                <option  value ="Center of Excellence and Environmental Studies">5. Center of Excellence and Environmental Studies</option>
+                <option  value ="Others">6. Others</option>
   
     `;
     addYears(5);
@@ -292,6 +321,10 @@ course.addEventListener('change', () => {
     `;
     addYears(5);
   } else {
+    branch.innerHTML = `
+                <option selected value ="none">Choose Your Branch</option>
+                <option  value ="Otherrs">1. Others</option>  
+    `;
     addYears(5);
   }
 });
@@ -316,10 +349,13 @@ form.addEventListener('submit', e => {
   const g = check_branch();
   const h = check_year();
 
+  console.log(ex);
+
   if (a && b && c && d && ex && f && g && h) {
     console.log('You Form has been submitted');
   } else {
     e.preventDefault();
     modalFunction(`<p>Please Fill all required fields</p>`);
+    // window.history.back();
   }
 });
